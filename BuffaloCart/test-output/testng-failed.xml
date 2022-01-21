@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test(failed)">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="com.buffaloCart.testCases.DashboardTestCase">
+        <methods>
+          <include name="dashboardTestCase" invocation-numbers="0"/>
+          <include name="setUpBrowser"/>
+        </methods>
+      </class> <!-- com.buffaloCart.testCases.DashboardTestCase -->
+      <class name="com.buffaloCart.testCases.EventTestCase">
+        <methods>
+          <include name="addEventTestCase" invocation-numbers="0"/>
+          <include name="setUpBrowser"/>
+        </methods>
+      </class> <!-- com.buffaloCart.testCases.EventTestCase -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
