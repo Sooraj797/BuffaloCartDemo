@@ -1,7 +1,5 @@
 package com.buffaloCart.pages;
 
-import java.time.Duration;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
 
 import com.buffaloCart.utils.PageUtility;
+import com.buffaloCart.utils.WaitUtility;
 
 public class LoginPage {
 
@@ -35,12 +34,14 @@ public class LoginPage {
 		PageUtility.enterText(emailField, email);
 		PageUtility.enterText(passwordField, password);
 		PageUtility.clickButton(driver, submitButton);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
-		/*
-		 * SoftAssert softAssert = new SoftAssert(); boolean auth =
-		 * authFailed.isDisplayed(); softAssert.assertTrue(auth,
-		 * "Credentials is Wrong"); softAssert.assertAll();
-		 */
+		WaitUtility.waitImplicit(4);
+		
+		SoftAssert softAssert = new SoftAssert(); 
+		
+		boolean auth =authFailed.isDisplayed(); 
+		softAssert.assertTrue(auth,"Credentials is Wrong");
+		
+		softAssert.assertAll();
 
 	}
 

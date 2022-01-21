@@ -22,6 +22,7 @@ public class LoginInTestCase extends BaseSetUp {
 	public void logInTestCase(String browser) throws IOException {
 
 		dataRead = new DataRead(driver);
+		
 		emailId = dataRead.readStringData(1, 1, "LogIn");
 		password = dataRead.readStringData(1, 2, "LogIn");
 		

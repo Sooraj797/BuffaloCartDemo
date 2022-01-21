@@ -40,6 +40,18 @@ public class DataRead extends BaseSetUp {
 		
 	}
 	
+	public int getLastColumn(int r, String sheetName) throws IOException {
+		
+		file = new FileInputStream("./test.xls");
+		workbook = new HSSFWorkbook(file);
+		sheet = workbook.getSheet(sheetName);
+		Row row = sheet.getRow(r);
+		int c=row.getLastCellNum();
+	
+		return c;
+		
+	}
+	
 	/*
 	 * public String readIntegerData(int r, int c, String sheetName) throws
 	 * IOException {

@@ -4,6 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class PageUtility {
 	
@@ -15,8 +16,13 @@ public class PageUtility {
 	}
 	
 	public static void clickButton(WebDriver driver, WebElement element) {
-		JavascriptExecutor executor = (JavascriptExecutor)driver;
-		executor.executeScript("arguments[0].click();", element);
+		  JavascriptExecutor executor = (JavascriptExecutor)driver;
+		  executor.executeScript("arguments[0].click();", element);	 
+	}
+	
+	public static void clickActionButton(WebDriver driver, WebElement element) {
+		Actions action = new Actions(driver);
+		action.click(element).build().perform();
 	}
 	
 	public static String getText(WebElement element) {

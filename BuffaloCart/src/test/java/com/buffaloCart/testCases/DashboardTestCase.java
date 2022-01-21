@@ -1,7 +1,5 @@
 package com.buffaloCart.testCases;
 
-import java.io.IOException;
-
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -13,22 +11,36 @@ import com.buffaloCart.utils.DataRead;
 public class DashboardTestCase extends BaseSetUp {
 
 	DataRead dataRead = new DataRead(driver);
-	LoginPage loginPage = new LoginPage(driver);
+	LoginPage loginPage;
 	DashboardPage dashboardPage;
 
 	@Test
 	@Parameters({ "browser" }) 
-	public void dashboardTestCase(String browser) throws IOException {
-
+	public void clockINTestCase(String browser) {
 		dashboardPage = new DashboardPage(driver);
 		dashboardPage.clockIN();
+	}
+	
+	@Test
+	@Parameters({ "browser" }) 
+	public void openEventTestCase(String browser) {
 		dashboardPage.openEvent();
 		dashboardPage.returnHome();
+	}
+	
+	@Test
+	@Parameters({ "browser" }) 
+	public void openTasksTestCase(String browser) {
 		dashboardPage.openTasks();
 		dashboardPage.returnHome();
+	}
+	
+	@Test
+	@Parameters({ "browser" }) 
+	public void openTeamsTimelineTestCase(String browser) {
 		dashboardPage.openTeamsTimeline();
 		dashboardPage.returnHome();
-
 	}
-
+		
+		
 }

@@ -11,7 +11,10 @@
   			</class>
   			<class name="com.buffaloCart.testCases.DashboardTestCase">
   				<methods>
-          			<include name="dashboardTestCase"></include>
+          			<include name="clockINTestCase"></include>
+          			<include name="openEventTestCase"></include>
+          			<include name="openTasksTestCase"></include>
+          			<include name="openTeamsTimelineTestCase"></include>
         		</methods>	
   			</class>
   			<class name="com.buffaloCart.testCases.EventTestCase">

@@ -108,34 +108,26 @@ public class EventPage {
 		
 		PageUtility.enterText(title, list1.get(0));
 		PageUtility.enterText(description, list1.get(1));
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 		
 		PageUtility.clickButton(driver, startDate);
 		PageUtility.enterText(startDate, list1.get(2));
 		PageUtility.enterKey(startDate);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 		PageUtility.enterText(startTime, list1.get(3));
 		PageUtility.clickButton(driver, clickGeneral);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 		
 		PageUtility.clickButton(driver, endDate);
 		PageUtility.enterText(endDate, list1.get(4));
 		PageUtility.enterKey(endDate);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 		PageUtility.enterText(endTime, list1.get(5));
 		PageUtility.clickButton(driver, clickGeneral);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 		
 		PageUtility.enterText(location, list1.get(6));
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 		
-		PageUtility.clickButton(driver, clientSelectionDropdown);
-		PageUtility.enterText(clientField, list1.get(10));
+		PageUtility.clickActionButton(driver, clientSelectionDropdown);
+		PageUtility.enterText(clientField, list1.get(7));
 		PageUtility.enterKey(clientField);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 		
 		PageUtility.clickButton(driver, list.get(0));
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 		b =PageUtility.selected(list.get(2));
 		softAssert.assertTrue(b,"Specific Members");
 		PageUtility.enterText(membersShared, list1.get(8));
@@ -145,47 +137,37 @@ public class EventPage {
 		if(list1.get(9).equalsIgnoreCase("Yes")) {
 			PageUtility.clickButton(driver, eventRecurring);
 			PageUtility.enterText(repeatTimes, list1.get(10));
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 			PageUtility.clickButton(driver, repeatDurationDropdown);
 			PageUtility.enterText(repeatDuration, list1.get(11));
 			PageUtility.enterKey(repeatDuration);
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 			PageUtility.enterText(repeatCycles, list1.get(12));
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 		}
 		PageUtility.clickButton(driver, eventColor);
 		PageUtility.clickButton(driver, saveButton);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 	}
 	
 	public void eventMonthView() {
 		PageUtility.clickButton(driver, monthView);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 	}
 	
 	public void eventWeekView() {
 		PageUtility.clickButton(driver, weekView);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 	}
 	
 	public void eventDayView() {
 		PageUtility.clickButton(driver, dayView);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 	}
 	
 	public void eventListView() {
 		PageUtility.clickButton(driver, listView);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 	}
 	
 	public void navigateEventForward() {
 		PageUtility.clickButton(driver, forwardNavigation);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 	}
 	
 	public void navigateEventBackward() {
 		PageUtility.clickButton(driver, backwardNavigation);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 	}
 
 
