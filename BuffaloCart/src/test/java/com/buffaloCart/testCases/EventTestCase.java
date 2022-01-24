@@ -1,7 +1,6 @@
 package com.buffaloCart.testCases;
 
 import java.io.IOException;
-import java.time.Duration;
 import java.util.ArrayList;
 
 import org.testng.annotations.Parameters;

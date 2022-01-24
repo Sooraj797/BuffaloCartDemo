@@ -42,7 +42,7 @@ public class DataRead extends BaseSetUp {
 	
 	public int getLastColumn(int r, String sheetName) throws IOException {
 		
-		file = new FileInputStream("./test.xls");
+		file = new FileInputStream("D:\\Selenium Training\\Selenium WebDriver Projects\\BuffaloCart\\test.xls");
 		workbook = new HSSFWorkbook(file);
 		sheet = workbook.getSheet(sheetName);
 		Row row = sheet.getRow(r);

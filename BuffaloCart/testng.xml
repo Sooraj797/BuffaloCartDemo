@@ -16,17 +16,16 @@
           			<include name="openTasksTestCase"></include>
           			<include name="openTeamsTimelineTestCase"></include>
         		</methods>	
-  			</class>
-  			<class name="com.buffaloCart.testCases.EventTestCase">
+  			</class>		
+  			<class name="com.buffaloCart.testCases.ClientsTestCase">
   				<methods>
-          			<include name="addEventTestCase"></include>
-          			<include name="navigateEventForwardTestCase"></include>
-          			<include name="navigateEventBackwardTestCase"></include>
-          			<include name="eventWeekViewTestCase"></include>
-          			<include name="eventDayViewTestCase"></include>
-          			<include name="eventListViewTestCase"></include>
-          			<include name="eventMonthViewTestCase"></include>
-        		</methods>	
+  					<include name="goToClientTestCase"></include>
+  					<include name="goToContactsTestCase"></include>
+  					<include name="addClientAndContacts"></include>
+  					<include name="importClientsTestCase"></include>
+  					<include name="filteringClientsTestCase"></include>
+  					<include name="downloadExcelContractsTestCase"></include>
+  				</methods>
   			</class>
   		</classes>
   </test> <!-- Test -->

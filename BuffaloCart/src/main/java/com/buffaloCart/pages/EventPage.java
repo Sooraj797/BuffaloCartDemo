@@ -1,6 +1,5 @@
 package com.buffaloCart.pages;
 
-import java.time.Duration;
 import java.util.ArrayList;
 
 import org.openqa.selenium.WebDriver;
@@ -10,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
 
 import com.buffaloCart.utils.PageUtility;
+import com.buffaloCart.utils.WaitUtility;
 
 public class EventPage {
 	
@@ -55,22 +55,20 @@ public class EventPage {
 	WebElement shareWithAll;
 	@FindBy(id = "share_with_specific_radio_button")
 	WebElement shareWithSpecific;
-	@FindBy(id = "s2id_share_with_specific")
+	@FindBy(xpath = "(//ul[@class='select2-choices']//parent::ul//child::li//child::label//following-sibling::input)[2]")
 	WebElement membersShared;
 	
 	@FindBy(id="event_recurring")
 	WebElement eventRecurring;
-	@FindBy(id = "repeat_every")
+	@FindBy(xpath = "(//label[text()='Repeat every']//parent::div//child::div//child::input)[1]")
 	WebElement repeatTimes;
 	
 	@FindBy(id = "s2id_repeat_type")
 	WebElement repeatDurationDropdown;
-	@FindBy(id = "s2id_clients_dropdown")
+	@FindBy(xpath = "//div[@id='select2-drop']//parent::div//child::label//following-sibling::input")
 	WebElement repeatDuration;
-	@FindBy(xpath = "(//div[@class='select2-drop select2-display-none select2-with-searchbox select2-drop-active']//parent::div//child::div//following-sibling::ul)[2]")
-	WebElement repeatClickDuration;
-	
-	@FindBy(id = "no_of_cycles")
+
+	@FindBy(xpath = "//div[@class='col-md-4']//parent::div//child::input")
 	WebElement repeatCycles;
 	@FindBy(xpath = "(//div[@class='color-palet']//parent::div//child::span)[1]")
 	WebElement eventColor;
@@ -95,6 +93,9 @@ public class EventPage {
 	@FindBy(xpath = "(//div[@class='form-group']//parent::div//child::label[text()='Labels'])[1]")
 	WebElement clickGeneral;
 	
+	@FindBy(xpath = "//h1[text()='Event calendar']")
+	WebElement finalEventPage;
+	
 	public void addEvent(ArrayList<String> list1) {
 		list.add(onlyMe);
 		list.add(shareWithAll);
@@ -106,67 +107,79 @@ public class EventPage {
 		
 		PageUtility.clickButton(driver, addEvent);
 		
-		PageUtility.enterText(title, list1.get(0));
-		PageUtility.enterText(description, list1.get(1));
+		PageUtility.enterText(title, list1.get(1));
+		PageUtility.enterText(description, list1.get(2));
 		
 		PageUtility.clickButton(driver, startDate);
-		PageUtility.enterText(startDate, list1.get(2));
+		PageUtility.enterText(startDate, list1.get(3));
 		PageUtility.enterKey(startDate);
-		PageUtility.enterText(startTime, list1.get(3));
+		PageUtility.enterText(startTime, list1.get(4));
 		PageUtility.clickButton(driver, clickGeneral);
 		
 		PageUtility.clickButton(driver, endDate);
-		PageUtility.enterText(endDate, list1.get(4));
+		PageUtility.enterText(endDate, list1.get(5));
 		PageUtility.enterKey(endDate);
-		PageUtility.enterText(endTime, list1.get(5));
+		PageUtility.enterText(endTime, list1.get(6));
 		PageUtility.clickButton(driver, clickGeneral);
 		
-		PageUtility.enterText(location, list1.get(6));
+		PageUtility.clickActionButton(driver, location);
+		PageUtility.enterText(location, list1.get(7));
 		
 		PageUtility.clickActionButton(driver, clientSelectionDropdown);
-		PageUtility.enterText(clientField, list1.get(7));
+		PageUtility.enterText(clientField, list1.get(8));
 		PageUtility.enterKey(clientField);
 		
-		PageUtility.clickButton(driver, list.get(0));
+		PageUtility.clickButton(driver, list.get(2));
 		b =PageUtility.selected(list.get(2));
 		softAssert.assertTrue(b,"Specific Members");
-		PageUtility.enterText(membersShared, list1.get(8));
-		PageUtility.clickButton(driver, membersShared);
+		PageUtility.clickActionButton(driver, membersShared);
+		PageUtility.enterText(membersShared, list1.get(9));
+		PageUtility.enterKey(membersShared);
 		softAssert.assertAll();
-		
-		if(list1.get(9).equalsIgnoreCase("Yes")) {
-			PageUtility.clickButton(driver, eventRecurring);
-			PageUtility.enterText(repeatTimes, list1.get(10));
-			PageUtility.clickButton(driver, repeatDurationDropdown);
-			PageUtility.enterText(repeatDuration, list1.get(11));
+
+		if(list1.get(10).equalsIgnoreCase("Yes")) {
+			PageUtility.clickActionButton(driver, eventRecurring);
+			PageUtility.enterText(repeatTimes, list1.get(11));
+			PageUtility.clickActionButton(driver, repeatDurationDropdown);
+			PageUtility.enterText(repeatDuration, list1.get(12));
 			PageUtility.enterKey(repeatDuration);
-			PageUtility.enterText(repeatCycles, list1.get(12));
+			PageUtility.enterText(repeatCycles, list1.get(13));
 		}
 		PageUtility.clickButton(driver, eventColor);
+		
 		PageUtility.clickButton(driver, saveButton);
+		WaitUtility.waitExplicitToBeClickable(saveButton);
+		
+		driver.navigate().refresh();
 	}
 	
 	public void eventMonthView() {
+		WaitUtility.waitExplicitToBevisibilityOfAllElements(finalEventPage);
 		PageUtility.clickButton(driver, monthView);
 	}
 	
 	public void eventWeekView() {
+		WaitUtility.waitImplicit(4);
 		PageUtility.clickButton(driver, weekView);
 	}
 	
 	public void eventDayView() {
+		WaitUtility.waitImplicit(4);
 		PageUtility.clickButton(driver, dayView);
 	}
 	
 	public void eventListView() {
+		WaitUtility.waitImplicit(4);
 		PageUtility.clickButton(driver, listView);
 	}
 	
 	public void navigateEventForward() {
+		WaitUtility.waitImplicit(4);
 		PageUtility.clickButton(driver, forwardNavigation);
 	}
 	
 	public void navigateEventBackward() {
+		WaitUtility.waitImplicit(4);
 		PageUtility.clickButton(driver, backwardNavigation);
 	}
 
