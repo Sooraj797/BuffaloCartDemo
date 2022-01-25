@@ -52,18 +52,5 @@ public class DataRead extends BaseSetUp {
 		
 	}
 	
-	/*
-	 * public String readIntegerData(int r, int c, String sheetName) throws
-	 * IOException {
-	 * 
-	 * file = new FileInputStream(constants.EXCELFILE); workbook = new
-	 * HSSFWorkbook(file); sheet = workbook.getSheet(sheetName); Row row =
-	 * sheet.getRow(r); Cell col = row.getCell(c); long val = (long)
-	 * col.getNumericCellValue();
-	 * 
-	 * return String.valueOf(val);
-	 * 
-	 * }
-	 */
 
 }

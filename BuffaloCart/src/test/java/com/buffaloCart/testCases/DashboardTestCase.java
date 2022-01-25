@@ -1,6 +1,5 @@
 package com.buffaloCart.testCases;
 
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.buffaloCart.base.BaseSetUp;
@@ -15,29 +14,25 @@ public class DashboardTestCase extends BaseSetUp {
 	DashboardPage dashboardPage;
 
 	@Test
-	@Parameters({ "browser" }) 
-	public void clockINTestCase(String browser) {
+	public void clockINTestCase() {
 		dashboardPage = new DashboardPage(driver);
 		dashboardPage.clockIN();
 	}
 	
 	@Test
-	@Parameters({ "browser" }) 
-	public void openEventTestCase(String browser) {
+	public void openEventTestCase() {
 		dashboardPage.openEvent();
 		dashboardPage.returnHome();
 	}
 	
 	@Test
-	@Parameters({ "browser" }) 
-	public void openTasksTestCase(String browser) {
+	public void openTasksTestCase() {
 		dashboardPage.openTasks();
 		dashboardPage.returnHome();
 	}
 	
 	@Test
-	@Parameters({ "browser" }) 
-	public void openTeamsTimelineTestCase(String browser) {
+	public void openTeamsTimelineTestCase() {
 		dashboardPage.openTeamsTimeline();
 		dashboardPage.returnHome();
 	}

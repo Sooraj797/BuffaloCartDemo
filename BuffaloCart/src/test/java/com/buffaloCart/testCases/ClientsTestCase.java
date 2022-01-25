@@ -3,7 +3,6 @@ package com.buffaloCart.testCases;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.buffaloCart.base.BaseSetUp;
@@ -24,44 +23,33 @@ public class ClientsTestCase extends BaseSetUp {
 	
 	ArrayList<String> clientsFilter = new ArrayList<String>();
 	
-	@Parameters({ "browser" })
 	@Test
-	public void goToClientTestCase(String browser) {
+	public void goToClientTestCase() {
 		clientsPage = new ClientsPage(driver);
 		clientsPage.goToClient();
 	}
 	
-	@Parameters({ "browser" })
 	@Test
-	public void goToContactsTestCase(String browser) {
+	public void goToContactsTestCase() {
 		clientsPage.goToContacts();
 	}
 	
-	@Parameters({ "browser" })
 	@Test
-	public void addClientAndContacts(String browser) throws IOException {	
+	public void addClientAndContacts() throws IOException {	
 		clients=excelUtility.readExcel(1, "AddClient");
 		contacts=excelUtility.readExcel(1, "ClientContacts");
 
 		clientsPage.addClientAndContacts(clients, contacts);	
 	}
 	
-	@Parameters({ "browser" })
-	@Test
-	public void importClientsTestCase(String browser) {
-		clientsPage.importClients();
-	}
+	/*
+	 * @Test public void filteringClientsTestCase() throws IOException {
+	 * clientsFilter=excelUtility.readExcel(1, "QuickFiltersClient");
+	 * clientsPage.filteringClients(clientsFilter); }
+	 */
 	
-	@Parameters({ "browser" })
 	@Test
-	public void filteringClientsTestCase(String browser) throws IOException {
-		clientsFilter=excelUtility.readExcel(1, "QuickFiltersClient");
-		clientsPage.filteringClients(clientsFilter);
-	}
-	
-	@Parameters({ "browser" })
-	@Test
-	public void downloadExcelContractsTestCase(String browser) throws IOException {
+	public void downloadExcelContractsTestCase() throws IOException {
 		clientsPage.downloadExcelClientsFile();
 	}
 

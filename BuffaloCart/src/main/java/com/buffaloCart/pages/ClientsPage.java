@@ -120,26 +120,20 @@ public class ClientsPage {
 	@FindBy(xpath = "(//*[contains (text(),'Close')]//parent::div//child::button)[1]")
 	WebElement contactsCloseButton;
 	
-	@FindBy(xpath = "//a[text()=' Import clients']//parent::a")
-	WebElement importClientsButton;
-	@FindBy(xpath = "//h4[text()='Import clients']")
-	WebElement importClientsTitle;
-	@FindBy(xpath = "//button[text()='Drag-and-drop documents here ']")
-	WebElement dragAndDropdocButton;
-	@FindBy(xpath = "//button[text()=' Next']")
-	WebElement importNext;
-	@FindBy(xpath = "//button[text()=' Upload']")
-	WebElement importUpload;
-	
-	@FindBy(xpath = "(//div[@class='mr15 DTTT_container']//parent::div//child::div//child::a)[2]")
+	@FindBy(xpath = "(//div[@class='mr15 DTTT_container']//parent::div//child::div//child::a//child::span)[1]")
 	WebElement clientQucikFilterDropdown;
-	@FindBy(xpath = "(//div[@class='select2-search']//parent::div//child::div//child::label//following-sibling::input)[4]")
+	@FindBy(xpath = "(//div[@class='select2-drop select2-display-none select2-with-searchbox select2-drop-active']//parent::div//child::div//following-sibling::ul//child::li)[2]")
 	WebElement clientQucikFilterField;
 	
 	@FindBy(xpath = "//span[text()='Excel']")
 	WebElement clientExcelButon;
 	
-	public void goToClient() {	
+	@FindBy(xpath = "//span[text()='Dashboard']//parent::a")
+	WebElement returnDashboard;
+	@FindBy(xpath = "//h4[text()='Dashboard']")
+	WebElement dashboardTitle;
+	
+	public void goToClient() {
 		PageUtility.clickButton(driver, mainClient);
 		PageUtility.clickButton(driver, toTotalClients);
 		WaitUtility.waitExplicitToBevisibilityOfAllElements(findCompanyName);
@@ -183,10 +177,6 @@ public class ClientsPage {
 		
 		PageUtility.enterText(vatNumber, client.get(10));
 		
-		/*
-		 * PageUtility.enterText(clientGroups, client.get(11));
-		 * PageUtility.enterKey(clientGroups);
-		 */
 		WaitUtility.waitExplicitToBeClickable(saveAndContinueButton);
 		PageUtility.clickButton(driver, saveAndContinueButton);
 		
@@ -223,26 +213,16 @@ public class ClientsPage {
 		PageUtility.clickButton(driver, contactsCloseButton);
 	}
 	
-	public void importClients() {
-		//WaitUtility.waitExplicitToBevisibilityOfAllElements(findCompanyName);
-		//WaitUtility.waitImplicit(10);
-		PageUtility.clickActionButton(driver, importClientsButton);
-		//WaitUtility.waitExplicitToBevisibilityOfAllElements(importClientsTitle);
-		PageUtility.enterText(dragAndDropdocButton, constants.IMPORTCLIENTFILE);
-		PageUtility.clickActionButton(driver, importNext);
-		PageUtility.clickActionButton(driver, importUpload);
-		PageUtility.clickActionButton(driver, clientsFrame);
-		//WaitUtility.waitExplicitToBevisibilityOfAllElements(clientsFrame);
-	}
 	
-	public void filteringClients(ArrayList<String> filter) {
-		PageUtility.clickActionButton(driver, clientQucikFilterDropdown);
-		PageUtility.enterText(clientQucikFilterField, filter.get(1));
-		PageUtility.enterKey(clientQucikFilterField);
-	}
+	/*
+	 * public void filteringClients(ArrayList<String> filter) {
+	 * PageUtility.clickActionButton(driver, clientQucikFilterDropdown);
+	 * PageUtility.clickActionButton(driver, clientQucikFilterField); }
+	 */
 	
 	public void downloadExcelClientsFile() {
 		PageUtility.clickButton(driver, clientExcelButon);
+		PageUtility.clickButton(driver, returnDashboard);
 	}
 
 }

@@ -96,6 +96,9 @@ public class EventPage {
 	@FindBy(xpath = "//h1[text()='Event calendar']")
 	WebElement finalEventPage;
 	
+	@FindBy(xpath = "//span[text()='Dashboard']//parent::a")
+	WebElement returnDashboard;
+	
 	public void addEvent(ArrayList<String> list1) {
 		list.add(onlyMe);
 		list.add(shareWithAll);
@@ -105,6 +108,7 @@ public class EventPage {
 		
 		PageUtility.clickButton(driver, goToEvents);
 		
+		WaitUtility.waitExplicitToBeClickable(addEvent);
 		PageUtility.clickButton(driver, addEvent);
 		
 		PageUtility.enterText(title, list1.get(1));
@@ -138,6 +142,7 @@ public class EventPage {
 		softAssert.assertAll();
 
 		if(list1.get(10).equalsIgnoreCase("Yes")) {
+			WaitUtility.waitExplicitToBeClickable(eventRecurring);
 			PageUtility.clickActionButton(driver, eventRecurring);
 			PageUtility.enterText(repeatTimes, list1.get(11));
 			PageUtility.clickActionButton(driver, repeatDurationDropdown);
@@ -147,40 +152,44 @@ public class EventPage {
 		}
 		PageUtility.clickButton(driver, eventColor);
 		
-		PageUtility.clickButton(driver, saveButton);
 		WaitUtility.waitExplicitToBeClickable(saveButton);
-		
-		driver.navigate().refresh();
+		PageUtility.clickButton(driver, saveButton);
+		WaitUtility.waitImplicit(5);
+		/*
+		 * driver.navigate().refresh();
+		 * WaitUtility.waitExplicitToBevisibilityOfAllElements(finalEventPage);
+		 */
 	}
 	
 	public void eventMonthView() {
-		WaitUtility.waitExplicitToBevisibilityOfAllElements(finalEventPage);
+		PageUtility.clickButton(driver, monthView);
 		PageUtility.clickButton(driver, monthView);
 	}
 	
 	public void eventWeekView() {
-		WaitUtility.waitImplicit(4);
+		PageUtility.clickButton(driver, weekView);
 		PageUtility.clickButton(driver, weekView);
 	}
 	
 	public void eventDayView() {
-		WaitUtility.waitImplicit(4);
+		PageUtility.clickButton(driver, dayView);
 		PageUtility.clickButton(driver, dayView);
 	}
 	
 	public void eventListView() {
-		WaitUtility.waitImplicit(4);
+		PageUtility.clickButton(driver, listView);
 		PageUtility.clickButton(driver, listView);
 	}
 	
 	public void navigateEventForward() {
-		WaitUtility.waitImplicit(4);
+		PageUtility.clickButton(driver, forwardNavigation);
 		PageUtility.clickButton(driver, forwardNavigation);
 	}
 	
 	public void navigateEventBackward() {
-		WaitUtility.waitImplicit(4);
 		PageUtility.clickButton(driver, backwardNavigation);
+		PageUtility.clickButton(driver, backwardNavigation);
+		WaitUtility.waitImplicit(5);
 	}
 
 

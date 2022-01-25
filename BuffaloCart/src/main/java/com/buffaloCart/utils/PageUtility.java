@@ -15,6 +15,10 @@ public class PageUtility {
 		element.sendKeys(text);
 	}
 	
+	public static void enterWithoutClearText(WebElement element, String text) {
+		element.sendKeys(text);
+	}
+	
 	public static void clickButton(WebDriver driver, WebElement element) {
 		  JavascriptExecutor executor = (JavascriptExecutor)driver;
 		  executor.executeScript("arguments[0].click();", element);	 

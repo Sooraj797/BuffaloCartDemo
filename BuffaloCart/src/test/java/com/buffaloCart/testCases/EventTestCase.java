@@ -3,7 +3,6 @@ package com.buffaloCart.testCases;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.buffaloCart.base.BaseSetUp;
@@ -20,50 +19,42 @@ public class EventTestCase extends BaseSetUp {
 	EventPage eventPage;
 	
 	ArrayList<String> event;
-	String eg;
 	
-	@Parameters({ "browser" })
 	@Test
-	public void addEventTestCase(String browser) throws IOException {
+	public void addEventTestCase() throws IOException {
 		event = new ArrayList<String>();
 		eventPage = new EventPage(driver);
 		event=excelUtility.readExcel(1, "AddEvent");
 		eventPage.addEvent(event);
 	}
 	
-	@Parameters({ "browser" })
 	@Test
-	public void navigateEventForwardTestCase(String browser) {
+	public void navigateEventForwardTestCase() {
 		eventPage.navigateEventForward();	
 	}
 	
-	@Parameters({ "browser" })
 	@Test
-	public void navigateEventBackwardTestCase(String browser){	
+	public void navigateEventBackwardTestCase(){	
 		eventPage.navigateEventBackward();
 	}
 	
-	@Parameters({ "browser" })
 	@Test
-	public void eventWeekViewTestCase(String browser) {
+	public void eventWeekViewTestCase() {
 		eventPage.eventWeekView();
 	}
 	
-	@Parameters({ "browser" })
 	@Test
-	public void eventDayViewTestCase(String browser) {
+	public void eventDayViewTestCase() {
 		eventPage.eventDayView();
 	}
 	
-	@Parameters({ "browser" })
 	@Test
-	public void eventListViewTestCase(String browser) {
+	public void eventListViewTestCase() {
 		eventPage.eventListView();
 	}
 	
-	@Parameters({ "browser" })
 	@Test
-	public void eventMonthViewTestCase(String browser) {
+	public void eventMonthViewTestCase() {
 		eventPage.eventMonthView();
 	}
 

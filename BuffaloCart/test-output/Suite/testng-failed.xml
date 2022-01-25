@@ -4,25 +4,12 @@
   <test thread-count="5" name="Test(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.buffaloCart.testCases.ClientsTestCase">
+      <class name="com.buffaloCart.testCases.LogInTestCase">
         <methods>
-          <include name="importClientsTestCase" invocation-numbers="0"/>
-          <include name="setUpBrowser"/>
-          <include name="filteringClientsTestCase" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.buffaloCart.testCases.ClientsTestCase -->
-      <class name="com.buffaloCart.testCases.LoginInTestCase">
-        <methods>
-          <include name="logInTestCase" invocation-numbers="0"/>
+          <include name="logInTestCase"/>
           <include name="setUpBrowser"/>
         </methods>
-      </class> <!-- com.buffaloCart.testCases.LoginInTestCase -->
-      <class name="com.buffaloCart.testCases.DashboardTestCase">
-        <methods>
-          <include name="clockINTestCase" invocation-numbers="0"/>
-          <include name="setUpBrowser"/>
-        </methods>
-      </class> <!-- com.buffaloCart.testCases.DashboardTestCase -->
+      </class> <!-- com.buffaloCart.testCases.LogInTestCase -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

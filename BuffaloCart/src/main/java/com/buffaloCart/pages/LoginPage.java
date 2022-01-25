@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.asserts.SoftAssert;
 
 import com.buffaloCart.utils.PageUtility;
 import com.buffaloCart.utils.WaitUtility;
@@ -27,21 +26,17 @@ public class LoginPage {
 	@FindBy(xpath = "//button[@type='submit']")
 	WebElement submitButton;
 	@FindBy(xpath = "//div[@role='alert']")
-	WebElement authFailed;
+	public WebElement authFailed;
 	
-	public void logIn(String email, String password) {
+	public boolean logIn(String email, String password) {
 
 		PageUtility.enterText(emailField, email);
 		PageUtility.enterText(passwordField, password);
 		PageUtility.clickButton(driver, submitButton);
 		WaitUtility.waitImplicit(4);
-		
-		SoftAssert softAssert = new SoftAssert(); 
-		
+
 		boolean auth =authFailed.isDisplayed(); 
-		softAssert.assertTrue(auth,"Credentials is Wrong");
-		
-		softAssert.assertAll();
+		return auth;
 
 	}
 

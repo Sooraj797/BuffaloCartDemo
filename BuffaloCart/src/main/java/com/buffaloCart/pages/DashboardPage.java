@@ -46,6 +46,10 @@ public class DashboardPage {
 	WebElement dashboard;
 	
 	boolean display;
+	
+	public void homeDashBoard() {
+		PageUtility.clickButton(driver, dashboard);
+	}
 
 	public void clockIN() {
 		SoftAssert softAssert = new SoftAssert();

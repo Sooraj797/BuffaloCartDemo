@@ -12,13 +12,11 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
 import com.buffaloCart.constants.Constants;
-import com.buffaloCart.utils.Log;
 
 public class BaseSetUp {
 	
 	public static WebDriver driver;
 	public static Properties property;
-	public Log log;
 	
 	@Parameters({"browser"})
 	@BeforeTest
@@ -41,7 +39,7 @@ public class BaseSetUp {
 			driver.manage().window().maximize();
 			
 		}else {
-			Log.warn("Browser not listed");
+			System.out.println("No valid browser driver available");
 		}
 		
 		driver.get(property.getProperty("url"));
