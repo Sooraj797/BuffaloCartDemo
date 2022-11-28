@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Suite">
+  <listeners>
+       <listener class-name="com.buffaloCartCRM.utils.Listener"/>
+       <listener class-name="com.buffaloCartCRM.report.ExtentReport"/>
+  </listeners>
+  <test name="Test">
+  	<parameter name="browser" value="chrome"/>
+  		<classes>
+  			<class name="com.buffaloCartCRM.testCases.LogInPageTestCase"></class>
+  			<class name="com.buffaloCartCRM.testCases.DashboardPageTestCase"></class>
+  			<class name="com.buffaloCartCRM.testCases.EventPageTestCase"></class>
+  			<class name="com.buffaloCartCRM.testCases.TasksPageTestCase"></class>
+  		</classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
